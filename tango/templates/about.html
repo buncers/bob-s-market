@@ -1,0 +1,15 @@
+AIHFBASO: {{ product.product_name }}<br>
+pop: {{ product.product_des }}<br>
+ada: {{ product.product_price }}<br>
+a: {{ product.product_count }}
+<hr>
+{% if user.is_authenticated %}
+    <form action="/add-product/{{product.id}}" method ="post">
+        <input type="number" name="pr_count" min="1" max="{{product_product.count}}">
+        <button>Kupio</button>
+    </form>>
+{% else %}
+
+<a href=" /acconts/login">войди</a>
+
+{% endif %}

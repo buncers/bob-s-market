@@ -1,0 +1,26 @@
+{% if user.is_authenticated %}
+<a href="/accounts/logout">Vidi</a>
+{% else %}
+	<a href="/accounts/login">voidi</a>
+{% endif %}
+
+<hr>
+
+<form action="/search-products">
+<input type="text" name="search">
+<button>popisk</button>
+</form>
+{% for product in products %}
+	Продукт:{{ product }}<br>
+	Цена: {{ product.product_price }}<br>
+	kolvo: {{ product.product_count }}<br>
+<a href="/product-detail/{{product.product_name}}">Полное pop</a>
+<hr>
+{% endfor %}
+{% if categories %}
+<b> Категория:</b><br>
+	{% for category in categories %}
+		<a href="/current-category/{{ category.category_name }}">{{ category.category_name }}</a>>
+		<br>
+	{% endfor %}
+{% endif %}
