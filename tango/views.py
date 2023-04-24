@@ -40,7 +40,7 @@ def search_for_products(request):
 
 def add_product_to_cart(request, pk):
     current_product = models.Product.objects.get(id=pk)
-    checker = modeels.Usercart.objects.filter(user_id=None, user_product=current_product)
+    checker = models.Usercart.objects.filter(user_id=None, user_product=current_product)
 
 
     if checker:
@@ -53,7 +53,7 @@ def add_product_to_cart(request, pk):
 
 
 
-        return  redirect(f'/product-detail/){current_product.product_name}  
+        return  redirect(f'/product-detail/{current_product.product_name} ')
 
     else:
         models.UserCart.objects.create(user_id=request.user.id,
